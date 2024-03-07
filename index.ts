@@ -3,10 +3,10 @@ type embedInfo = {
   url: string
 }
 
-const getVideoEmbedInfo = (originURL: string): embedInfo => {
+const getVideoEmbedInfo = (originalURL: string): embedInfo => {
 
-  if (typeof originURL !== 'string' || !originURL) {
-    throw new Error('Invalid parameter: videoLink must be a string.');
+  if (typeof originalURL !== 'string' || !originalURL) {
+    throw new Error('Invalid parameter: videoLink must be a string and not a empty string.');
   }
 
   const info = {
@@ -17,30 +17,30 @@ const getVideoEmbedInfo = (originURL: string): embedInfo => {
   let videoId: string
 
   switch (true) {
-    case originURL.includes('youtu'):
-      videoIdMatch = originURL.match(/(?:youtu\.be\/|(?:youtube\.com\/(?:watch\?v=|shorts\/)))([a-zA-Z0-9_-]+)/)
+    case originalURL.includes('youtu'):
+      videoIdMatch = originalURL.match(/(?:youtu\.be\/|(?:youtube\.com\/(?:watch\?v=|shorts\/)))([a-zA-Z0-9_-]+)/)
       videoId = videoIdMatch[1]
 
       info.source = 'youtube'
       info.url = `https://www.youtube.com/embed/${videoId}`
       break
 
-    case originURL.includes('tiktok'):
-      videoIdMatch = originURL.match(/video\/([a-zA-Z0-9_-]+)/)
+    case originalURL.includes('tiktok'):
+      videoIdMatch = originalURL.match(/video\/([a-zA-Z0-9_-]+)/)
       videoId = videoIdMatch[1]
 
       info.source = 'tikTok'
       info.url = `https://www.tiktok.com/embed/v2/${videoId}`
       break
 
-    case originURL.includes('facebook'):
-      const convertedUrl = originURL.replace(/[:/]/g, (match) => `%${match.charCodeAt(0).toString(16).toUpperCase()}`);
+    case originalURL.includes('facebook'):
+      const convertedUrl = originalURL.replace(/[:/]/g, (match) => `%${match.charCodeAt(0).toString(16).toUpperCase()}`);
       info.source = 'facebook'
       info.url = `https://www.facebook.com/plugins/video.php?&href=${convertedUrl}%2F&show_text=false&t=0`
       break
 
-    case originURL.includes('instagram'):
-      videoIdMatch = originURL.match(/\/p\/([a-zA-Z0-9_-]+)\/|\/reel\/([a-zA-Z0-9_-]+)\//)
+    case originalURL.includes('instagram'):
+      videoIdMatch = originalURL.match(/\/p\/([a-zA-Z0-9_-]+)\/|\/reel\/([a-zA-Z0-9_-]+)\//)
       videoId = videoIdMatch[1] || videoIdMatch[2]
 
       info.source = 'instagram'
@@ -49,11 +49,11 @@ const getVideoEmbedInfo = (originURL: string): embedInfo => {
 
     default:
       info.source = 'direct'
-      info.url = originURL
+      info.url = originalURL
       break
   }
 
   return info
 }
 
-module.exports = getVideoEmbedInfo
+export { getVideoEmbedInfo }
