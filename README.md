@@ -1,5 +1,5 @@
 ## 描述
-因應 FB, IG, tikTok 和 youtube 各類主要社群影音平台，前端開發者需使用 iframe 標籤嵌入影音，但各社群有自己的嵌入網址格式，此套件可將網址輸出成嵌入網址。
+這款 npm 套件旨在簡化前端開發過程中的一個常見需求：將 Facebook、Instagram、TikTok 和 YouTube 等主流社群平台的視頻內容嵌入網頁中。它能自動將這些平台的視頻鏈接轉換為對應的嵌入式格式，讓開發者無需手動調整不同平台的嵌入代碼。此套件支持多種社群平台的視頻嵌入，並提供一個簡單統一的接口來生成標準的 iframe 標籤，極大地提高了開發效率並簡化了代碼的複雜度。
 
 ## 安裝
 npm i embed-video-url
@@ -31,12 +31,6 @@ npm i embed-video-url
 &nbsp;&nbsp;➡ https://www.youtube.com/shorts/example1111  
 
 ## 輸出資料格式
-●&nbsp;若傳入的網址非此四種平台，則將原網址回傳：  
-&nbsp;&nbsp;{  
-&nbsp;&nbsp;&nbsp;&nbsp;source: 'direct',  
-&nbsp;&nbsp;&nbsp;&nbsp;url: 'originalURL',  
-&nbsp;&nbsp;}
-
 ●&nbsp;FB:  
 &nbsp;&nbsp;{  
 &nbsp;&nbsp;&nbsp;&nbsp;source: 'facebook',  

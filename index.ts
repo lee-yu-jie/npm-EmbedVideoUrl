@@ -48,9 +48,7 @@ const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
       break
 
     default:
-      info.source = 'direct'
-      info.url = originalURL
-      break
+      throw new Error('Invalid parameter: videoLink is not from FB, IG, tikTok or youtube');
   }
 
   return info
