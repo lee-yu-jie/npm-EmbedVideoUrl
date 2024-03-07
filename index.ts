@@ -1,9 +1,9 @@
-type embedInfo = {
+type EmbedInfoType = {
   source: string
   url: string
 }
 
-const getVideoEmbedInfo = (originalURL: string): embedInfo => {
+const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
 
   if (typeof originalURL !== 'string' || !originalURL) {
     throw new Error('Invalid parameter: videoLink must be a string and not a empty string.');
