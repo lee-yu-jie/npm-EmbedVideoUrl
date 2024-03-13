@@ -23,15 +23,19 @@ describe('測試url轉換成嵌入格式', () => {
 
   test('當傳入facebook網址時是否轉換成嵌入格式', () => {
     expect(getVideoEmbedInfo('https://www.facebook.com/username/videos/1234567890'))
-    .toEqual({ source: 'facebook', url: 'https://www.facebook.com/plugins/video.php?&href=https%3A%2F%2Fwww.facebook.com%2Fusername%2Fvideos%2F1234567890%2F&show_text=false&t=0' });
+    .toEqual({ source: 'facebook', url: 'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2F1234567890%2F&show_text=false&t=0' });
     expect(getVideoEmbedInfo('https://www.facebook.com/watch/?v=1234567890'))
-    .toEqual({ source: 'facebook', url: 'https://www.facebook.com/plugins/video.php?&href=https%3A%2F%2Fwww.facebook.com%2Fusername%2Fvideos%2F1234567890%2F&show_text=false&t=0' });
-    // expect(getVideoEmbedInfo('https://www.facebook.com/reel/1234567890'))
-    // .toEqual({ source: 'facebook', url: 'https://www.facebook.com/plugins/video.php?&href=https%3A%2F%2Fwww.facebook.com%2Fusername%2Fvideos%2F1234567890%2F&show_text=false&t=0' });
+    .toEqual({ source: 'facebook', url: 'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2F1234567890%2F&show_text=false&t=0' });
+    expect(getVideoEmbedInfo('https://www.facebook.com/reel/1234567890'))
+    .toEqual({ source: 'facebook', url: 'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2F1234567890%2F&show_text=false&t=0' });
   });
 
   test('當傳入instagram網址時是否轉換成嵌入格式', () => {
     expect(getVideoEmbedInfo('https://www.instagram.com/p/1234567890/'))
+    .toEqual({ source: 'instagram', url: 'https://instagram.com/p/1234567890/embed/' });
+    expect(getVideoEmbedInfo('https://www.instagram.com/reel/1234567890/'))
+    .toEqual({ source: 'instagram', url: 'https://instagram.com/p/1234567890/embed/' });
+    expect(getVideoEmbedInfo('https://www.instagram.com/reels/1234567890/'))
     .toEqual({ source: 'instagram', url: 'https://instagram.com/p/1234567890/embed/' });
   });
 

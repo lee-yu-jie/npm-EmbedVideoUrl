@@ -39,23 +39,23 @@ npm i embed-video-url
 ●&nbsp;FB:  
 &nbsp;&nbsp;{  
 &nbsp;&nbsp;&nbsp;&nbsp;source: 'facebook',  
-&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.facebook.com/plugins/video.php?&href=convertedUrl%2F&show_text=false&t=0',  
+&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2FvideoID%2F&show_text=false&t=0',  
 &nbsp;&nbsp;}
 
 ●&nbsp;IG:  
 &nbsp;&nbsp;{  
 &nbsp;&nbsp;&nbsp;&nbsp;source: 'instagram',  
-&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://instagram.com/p/videoId/embed/',  
+&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://instagram.com/p/videoID/embed/',  
 &nbsp;&nbsp;}
 
 ●&nbsp;tikTok:  
 &nbsp;&nbsp;{  
 &nbsp;&nbsp;&nbsp;&nbsp;source: 'tikTok',  
-&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.tiktok.com/embed/v2/videoId',  
+&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.tiktok.com/embed/v2/videoID',  
 &nbsp;&nbsp;}
 
 ●&nbsp;youtube:  
 &nbsp;&nbsp;{  
 &nbsp;&nbsp;&nbsp;&nbsp;source: 'youtube',  
-&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.youtube.com/embed/videoId',  
+&nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.youtube.com/embed/videoID',  
 &nbsp;&nbsp;}

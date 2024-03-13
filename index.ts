@@ -34,9 +34,12 @@ const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
       break
 
     case originalURL.includes('facebook'):
-      const convertedUrl = originalURL.replace(/[:/]/g, (match) => `%${match.charCodeAt(0).toString(16).toUpperCase()}`);
+      videoIdMatch = originalURL.match(/(?:\/videos\/(\d+))|(?:\?v=(\d+))|(?:\/reel\/(\d+))/)
+      console.log(videoIdMatch)
+      videoId = videoIdMatch[1] || videoIdMatch[2] || videoIdMatch[3]
+
       info.source = 'facebook'
-      info.url = `https://www.facebook.com/plugins/video.php?&href=${convertedUrl}%2F&show_text=false&t=0`
+      info.url = `https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2F${videoId}%2F&show_text=false&t=0`
       break
 
     case originalURL.includes('instagram'):
