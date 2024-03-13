@@ -1,6 +1,6 @@
 {
   "name": "embed-video-url",
-  "version": "1.1.4",
+  "version": "1.1.91",
   "description": "A utility library for converting video URLs from multiple platforms into embeddable video format URLs. Supports YouTube, Facebook, TikTok, and Instagram.",
   "main": "dist/index.js",
   "types": "index.d.ts",

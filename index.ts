@@ -40,7 +40,7 @@ const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
       break
 
     case originalURL.includes('instagram'):
-      videoIdMatch = originalURL.match(/\/p\/([a-zA-Z0-9_-]+)\/|\/reel\/([a-zA-Z0-9_-]+)\//)
+      videoIdMatch = originalURL.match(/\/p\/([a-zA-Z0-9_-]+)\/|\/reels?\/([a-zA-Z0-9_-]+)\//)
       videoId = videoIdMatch[1] || videoIdMatch[2]
 
       info.source = 'instagram'
@@ -48,7 +48,7 @@ const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
       break
 
     default:
-      throw new Error('Invalid parameter: videoLink is not from FB, IG, tikTok or youtube');
+      throw new Error('Invalid parameter: videoLink is not from FB, IG, tikTok or youtube.');
   }
 
   return info

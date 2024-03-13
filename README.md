@@ -19,8 +19,12 @@ npm i embed-video-url
 &nbsp;&nbsp;➡ https://www.facebook.com/watch/?v=111111111111111  
 &nbsp;&nbsp;➡ https://www.facebook.com/reel/1111111111111111  
 
+注意
+格式 https://fb.watch/example/ 為縮網址無法取得影片id，會失敗。
+
 ●&nbsp;IG:  
 &nbsp;&nbsp;➡ https://www.instagram.com/p/example1111/  
+&nbsp;&nbsp;➡ https://www.instagram.com/reel/example1111/    
 &nbsp;&nbsp;➡ https://www.instagram.com/reels/example1111/  
 
 ●&nbsp;tikTok:  
