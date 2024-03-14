@@ -3,6 +3,10 @@ type EmbedInfoType = {
   url: string
 }
 
+const notFoundIDError = () => {
+  throw new Error('video ID not found.');
+}
+
 const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
 
   if (typeof originalURL !== 'string' || !originalURL) {
@@ -10,10 +14,10 @@ const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
   }
 
   const info = {
-    source: null,
-    url: null,
+    source: '',
+    url: '',
   }
-  const isIncludeFacebookOrFb = originalURL.includes('facebook') || originalURL.includes('fb')
+  const isFacebookVideo = originalURL.includes('facebook') || originalURL.includes('fb')
   let videoIdMatch: string[]
   let videoId: string
   let convertedUrl: string
@@ -35,12 +39,13 @@ const getVideoEmbedInfo = (originalURL: string): EmbedInfoType => {
       info.url = `https://www.tiktok.com/embed/v2/${videoId}`
       break
 
-    case isIncludeFacebookOrFb:
+    case isFacebookVideo:
       if (originalURL.includes('watch/?v')) {
+        // 網址格式為 'https://www.facebook.com/watch/?v=000000000000000' 直接 ASCII 編碼會嵌入失敗 
+        // 所以直接擷取最後的 ID 套用至寫好的固定網址
         videoIdMatch = originalURL.match(/(?:\?v=(\d+))/)
         videoId = videoIdMatch[1]
         convertedUrl = `https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2F${videoId}`
-        info.url = `https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F000000000000000%2Fvideos%2F${videoId}%2F`
       } else {
         convertedUrl = originalURL.replace(/[:/]/g, (match) => `%${match.charCodeAt(0).toString(16).toUpperCase()}`)
       }
