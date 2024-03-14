@@ -10,7 +10,7 @@ npm i embed-video-url
 
 ## 用法
 ``` javascript
-  import { getVideoEmbedInfo } from 'embedVideoUrl'
+  import { getVideoEmbedInfo } from 'embed-video-url'
 
   const convertedUrl = getVideoEmbedInfo('需轉換的網址')
 ```
