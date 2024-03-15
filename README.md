@@ -59,4 +59,9 @@ npm i embed-video-url
 &nbsp;&nbsp;{  
 &nbsp;&nbsp;&nbsp;&nbsp;source: 'youtube',  
 &nbsp;&nbsp;&nbsp;&nbsp;url: 'https://www.youtube.com/embed/videoID',  
+&nbsp;&nbsp;}  
+
+●&nbsp;錯誤:  
+&nbsp;&nbsp;{  
+&nbsp;&nbsp;&nbsp;&nbsp;error: 'message',  
 &nbsp;&nbsp;}

@@ -2,9 +2,18 @@ import { getVideoEmbedInfo } from '../index'
 
 describe('測試url轉換成嵌入格式', () => {
   test('當傳入空字串時是否報錯', () => {
-    expect(() => {
-      getVideoEmbedInfo('');
-    }).toThrow('Invalid parameter: videoLink must be a string and not a empty string.');
+    expect(getVideoEmbedInfo(''))
+    .toEqual({ error: 'Invalid parameter: videoLink must be a string and not a empty string.' });
+  });
+
+  test('當傳入非社群平台的網址時丟出錯誤', () => {
+    expect(getVideoEmbedInfo('https://www.example.com/1234567890'))
+    .toEqual({ error: 'Invalid parameter: videoLink is not from FB, IG, tikTok or YouTube.' });
+  });
+
+  test('當傳入網址不符合格式', () => {
+    expect(getVideoEmbedInfo('https://www.tiktok.com/@username/1234567890'))
+    .toEqual({ error: 'Invalid parameter: video ID is not found.' });
   });
 
   test('當傳入youtube網址時是否轉換成嵌入格式', () => {
@@ -41,10 +50,5 @@ describe('測試url轉換成嵌入格式', () => {
 
     expect(getVideoEmbedInfo('https://www.instagram.com/reels/1234567890/'))
     .toEqual({ source: 'instagram', url: 'https://instagram.com/p/1234567890/embed/' });
-  });
-
-  test('當傳入非社群平台的網址時丟出錯誤', () => {
-    expect(() => {getVideoEmbedInfo('https://www.example.com/1234567890')})
-      .toThrow('Invalid parameter: videoLink is not from FB, IG, tikTok or youtube.');
   });
 })
